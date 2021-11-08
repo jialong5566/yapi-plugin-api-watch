@@ -1,0 +1,26 @@
+{
+  "name": "yapi-plugin-api-watch",
+  "version": "1.0.0",
+  "description": "yapi-plugin to setup api watch-job",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jialong5566/yapi-plugin-api-watch.git"
+  },
+  "keywords": [
+    "yapi",
+    "api",
+    "watch",
+    "plugin"
+  ],
+  "author": "jialong5566",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jialong5566/yapi-plugin-api-watch/issues"
+  },
+  "homepage": "https://github.com/jialong5566/yapi-plugin-api-watch#readme"
+}
