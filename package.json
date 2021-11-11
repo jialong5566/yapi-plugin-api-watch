@@ -1,6 +1,6 @@
 {
   "name": "yapi-plugin-api-watch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "yapi-plugin to setup api watch-job",
   "main": "index.js",
   "scripts": {

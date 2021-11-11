@@ -109,15 +109,6 @@ export default class Add extends Component {
     });
   }
 
-  // 打开一个新窗口执行一次计划
-  runPlan = () => {
-    const { form } = this.props;
-    form.validateFields(async (err, values) => {
-      if (!err) {
-        window.open(values.plan_url, "_blank");
-      }
-    });
-  }
 
   render() {
     const { planNames, planMsg } = this.props;
@@ -138,15 +129,6 @@ export default class Add extends Component {
               checkedChildren="开"
               unCheckedChildren="关"
             />
-
-            {planMsg._id ? (<Button
-              type="primary"
-              icon="play-circle"
-              className="run-once"
-              onClick={this.runPlan}
-            >
-              执行一次
-            </Button>) : null}
 
             {this.state.auto_test_data.last_test_time != null ?
               (<div>上次执行时间: <span className="testtime">{formatTime(this.state.auto_test_data.last_test_time)}</span></div>) : null}
