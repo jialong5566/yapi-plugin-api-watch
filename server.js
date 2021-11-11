@@ -10,7 +10,7 @@ const Config = require('./utils/config');
 
 module.exports = function(options){
   Config.instance = options;
-  
+
   yapi.getInst(schedule);
 
   this.bindHook('add_router', function(addRouter){
@@ -18,53 +18,43 @@ module.exports = function(options){
     addRouter({
       controller: plan,
       method: 'get',
-      path: `api_watch/plan`,
+      path: `getApiWatchPlans`,
       action: 'getApiWatchPlans'
     })
     addRouter({
       controller: plan,
       method: 'post',
-      path: `api_watch/plan/add`,
+      path: `saveApiWatchPlan`,
       action: `saveApiWatchPlan`
     })
     addRouter({
       controller: plan,
       method: 'put',
-      path: `api_watch/plan/update`,
+      path: `updateApiWatchPlan`,
       action: `updateApiWatchPlan`
     })
     addRouter({
       controller: plan,
       method: 'delete',
-      path: `api_watch/plan/del`,
+      path: `delApiWatchPlan`,
       action: `delApiWatchPlan`
     })
-
-    // 测试结果
-    addRouter({
-      controller: result,
-      prefix: "/open",
-      method: 'get',
-      path: 'api_watch/run',
-      action: 'runAutoApiWatch'
-    })
     addRouter({
       controller: result,
       method: 'get',
-      path: 'api_watch/results',
+      path: 'getApiWatchResults',
       action: 'getApiWatchResults'
     })
     addRouter({
       controller: result,
       method: 'delete',
-      path: 'api_watch/results/del',
+      path: 'delApiWatchResults',
       action: 'delApiWatchResults'
     })
     addRouter({
       controller: result,
-      prefix: "/open",
       method: 'get',
-      path: 'api_watch/result',
+      path: 'getApiWatchResult',
       action: 'getApiWatchResult'
     })
   })

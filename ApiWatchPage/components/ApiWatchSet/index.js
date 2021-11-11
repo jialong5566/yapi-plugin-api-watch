@@ -46,7 +46,7 @@ export default class ApiWatchSet extends Component {
   // 获取测试计划列表
   async getPlanList() {
     let projectId = this.props.projectMsg._id;
-    let result = await axios.get('/api/plugin/api_watch/plan?project_id=' + projectId);
+    let result = await axios.get('/api/plugin/getApiWatchPlans?project_id=' + projectId);
     if (result.data.errcode === 0) {
       if (result.data.data) {
         const plans = result.data.data;
@@ -90,7 +90,7 @@ export default class ApiWatchSet extends Component {
     });
     let delPlan = plans.find((val, index) => index === key);
     if (delPlan._id) {
-      let result =await axios.delete(`/api/plugin/api_watch/plan/del?id=${delPlan._id}&project_id=${this.props.projectMsg._id}`);
+      let result =await axios.delete(`/api/plugin/delApiWatchPlan?id=${delPlan._id}&project_id=${this.props.projectMsg._id}`);
       if (result.data.errcode === 0) {
         this.handleClick(0, currPlans[0], currPlans);
       } else {
@@ -109,9 +109,9 @@ export default class ApiWatchSet extends Component {
   async onSave(value) {
     let result = null;
     if (value.id) {
-      result = await axios.put("/api/plugin/api_watch/plan/update", value);
+      result = await axios.put("/api/plugin/updateApiWatchPlan", value);
     } else {
-      result = await axios.post("/api/plugin/api_watch/plan/add", value);
+      result = await axios.post("/api/plugin/saveApiWatchPlan", value);
     }
     this.saveResult(result);
   }

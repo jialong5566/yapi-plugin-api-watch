@@ -31,7 +31,7 @@ export default class Result extends Component {
   // 获取测试结果
   async getResultsList() {
     let planId = this.props.planId;
-    let result = await axios.get('/api/plugin/api_watch/results?plan_id=' + planId);
+    let result = await axios.get('/api/plugin/getApiWatchResults?plan_id=' + planId);
     if (result.data.errcode === 0) {
       if (result.data.data) {
         this.setState({
@@ -50,7 +50,7 @@ export default class Result extends Component {
   // 清空测试结果
   clearResults = async () => {
     let {planId, projectId} = this.props;
-    let result = await axios.delete(`/api/plugin/api_watch/results/del?plan_id=${planId}&project_id=${projectId}`);
+    let result = await axios.delete(`/api/plugin/delApiWatchResults?plan_id=${planId}&project_id=${projectId}`);
     if (result.data.errcode === 0) {
       this.setState({ results: [] });
     } else {
@@ -67,7 +67,7 @@ export default class Result extends Component {
       return (
         <Timeline.Item key={index} color={color} dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
           {formatTime(item.add_time)}
-          <p>{`成功执行用例:${names}。查看`}<a target="_blank" href={"/api/open/plugin/api_watch/result?id=" + item._id}>
+          <p>{`成功执行用例:${names}。查看`}<a target="_blank" href={"/api/open/plugin/getApiWatchResult?id=" + item._id}>
             详细测试报告
           </a></p>
         </Timeline.Item>
